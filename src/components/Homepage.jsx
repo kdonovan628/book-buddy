@@ -1,23 +1,8 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import LogInForm from "./LogInForm";
 
-const Homepage = () => {
+const Homepage = ({ setToken, token }) => {
   const navigate = useNavigate();
-
-  // const [inputEmail, setInputEmail] = useState(``);
-  // const [inputPassword, setInputPassword] = useState(``);
-
-  // const logInUser = async(event) => {
-  //   event.preventDefault();
-  //   console.log(`Input Email`, inputEmail);
-  //   console.log(`Input Password`, inputPassword);
-
-  //   const response = await fetch(`https://fsa-book-buddy-b6e748d1380d.herokuapp.com/api/users/login`, {
-  //     method: `POST`;
-  //     headers: {}
-  //   })
-
-  // }
 
   return (
     <>
@@ -30,8 +15,11 @@ const Homepage = () => {
         width="800"
       />
       <button
+        id="view-books-button"
         onClick={() => { navigate(`/bookcatalog/`); }}
       >View Available Books</button>
+
+      {token ? null : <LogInForm setToken={setToken} />}
     </>
   );
 };
