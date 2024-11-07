@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import LogInForm from "./LogInForm";
 
-const Homepage = ({ setToken, token }) => {
+const Homepage = () => {
   const navigate = useNavigate();
 
   return (
@@ -18,8 +17,6 @@ const Homepage = ({ setToken, token }) => {
         id="view-books-button"
         onClick={() => { navigate(`/bookcatalog/`); }}
       >View Available Books</button>
-
-      {token ? null : <LogInForm setToken={setToken} />}
     </>
   );
 };
