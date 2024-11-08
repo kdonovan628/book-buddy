@@ -13,19 +13,19 @@ const App = () => {
 
   const logOut = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('userDetails'); // Clear user details on logout
+    localStorage.removeItem('userDetails');
     setToken('');
   };
 
   return (
     <>
-      <NavBar logOutButton={token ? <button onClick={logOut}>Log Out</button> : null} />
+      <NavBar logOutButton={token ? <button id="logout-button" onClick={logOut}>Log Out</button> : null} />
 
       <Routes>
         <Route path="/" element={<Homepage setToken={setToken} token={token}/>} />
         <Route path="/bookcatalog" element={<AllBooks checkedOutBooks={checkedOutBooks} />} />
         <Route path="/bookcatalog/:id" element={<BookDetails setCheckedOutBooks={setCheckedOutBooks} />} />
-        <Route path="/accountdetails" element={<AccountDetails checkedOutBooks={checkedOutBooks} token={token} setToken={setToken} />} />
+        <Route path="/accountdetails" element={<AccountDetails checkedOutBooks={checkedOutBooks} setCheckedOutBooks={setCheckedOutBooks} token={token} setToken={setToken} />} />
         </Routes>
     </>
   );
