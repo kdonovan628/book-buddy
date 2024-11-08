@@ -1,0 +1,232 @@
+body {
+  background: linear-gradient(to bottom, 
+    rgba(255, 126, 95, 0.8),  /* warm red, 80% opacity */
+    rgba(254, 180, 123, 0.8), /* peachy orange, 80% opacity */
+    rgba(255, 179, 71, 0.8),  /* golden orange, 80% opacity */
+    rgba(255, 204, 51, 0.8)   /* mustard yellow, 80% opacity */
+  );
+  min-height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margin */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#p1 {
+  font-size: 20px;
+  text-align: center;
+  color: #520909;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  padding-bottom: 10px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #520909;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  border-bottom: 3px solid #520909;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #520909;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  border-bottom: 3px solid #520909;
+  padding-bottom: 10px;
+}
+
+#view-books-button {
+  display: flex;
+  background-color: #D35400;  /* Autumn orange */
+  color: #FFF;  /* White text */
+  padding: 15px 30px;  /* Make button larger */
+  font-size: 18px;  /* Larger text */
+  border: none;  /* Remove default border */
+  border-radius: 8px;  /* Rounded corners */
+  cursor: pointer;  /* Pointer cursor on hover */
+  transition: background-color 0.\3s ease, transform 0.\2s ease;  /* Smooth transition for hover effects */
+  margin: 10px;
+}
+
+#view-books-button:hover {
+  background-color: #eea361;  /* Lighter orange for hover */
+  transform: scale(1.\05);  /* Slightly enlarge button on hover */
+}
+
+#view-books-button:focus {
+  outline: none;  /* Remove default focus outline */
+}
+
+#\login-form {
+  background-color: #f7f1e1;  /* Light beige background */
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  margin: 0;  /* Center the form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.\1);  /* Soft shadow */
+}
+
+#\login-form input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;  /* Space between inputs */
+  border: 1px solid #D35400;  /* Border color matches button */
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#\login-form input:focus {
+  outline: none;  /* Remove the default focus outline */
+  border-color: #E67E22;  /* Lighter border color on focus */
+}
+
+#\login-form button {
+  background-color: #D35400;  /* Match button background color */
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.\3s ease, transform 0.\2s ease;
+}
+
+#\login-form button:hover {
+  background-color: #E67E22;  /* Lighter orange on hover */
+  transform: scale(1.\05);
+}
+
+#\login-form button:focus {
+  outline: none;
+}
+
+#\registration-form {
+  display: flex;
+  flex-direction: column;  /* Stack forms vertically */
+  align-items: center;     /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  background-color: #f7f1e1;  /* Light beige background */
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  margin: 0;  /* Center the form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.\1);  /* Soft shadow */
+}
+
+#\registration-form input {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 0;  /* Space between inputs */
+  border: 1px solid #D35400;  /* Border color matches button */
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#\registration-form input:focus {
+  outline: none;  /* Remove the default focus outline */
+  border-color: #E67E22;  /* Lighter border color on focus */
+}
+
+#\registration-form button {
+  background-color: #D35400;  /* Match button background color */
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.\3s ease, transform 0.\2s ease;
+}
+
+#\registration-form button:hover {
+  background-color: #E67E22;
+  transform: scale(1.\05);
+}
+
+#\registration-form button:focus {
+  outline: none;
+}
+
+#all-books {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  margin-left: 70px;
+}
+
+#root {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #520909;
+  padding: 40px 20px;
+  text-align: center;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+  gap: 15px; 
+  z-index: 1000; /* Keeps the navbar on top of other elements */
+}
+
+#navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+#navbar a:hover {
+  background-color: #E67E22;
+  border-radius: 4px;
+}
+
+#content {
+  padding-top: 100px;
+}
+
+ul {
+  list-style-type: none; /* Remove default bullet points */
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap */
+  padding: 0; /* Remove padding */
+  justify-content: space-between; /* Evenly space items across the container */
+  gap: 20px; /* Adds space between each list item */
+}
+
+li {
+  width: 200px; /* You can adjust this width as needed */
+  text-align: center; /* Centers the book title under the image */
+  word-wrap: break-word; /* Ensures the title wraps within the width */
+}
+
+img {
+  max-width: 100%; /* Ensure image is responsive and does not overflow */
+}
