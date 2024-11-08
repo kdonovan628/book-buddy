@@ -2,11 +2,13 @@
 // display them on the page 
 // allow users to click book in all books view to render details
 // create a back button to go back to the all books view
+
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-const BookDetails = () => {
+const BookDetails = ({ setCheckedOutBooks }) => {
   const [selectedBook, setSelectedBook] = useState(null);
+  const [isCheckedOut, setIsCheckedOut] = useState(false);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -29,24 +31,34 @@ const BookDetails = () => {
     return <p>Loading...</p>;
   }
 
+  const handleCheckout = () => {
+    setCheckedOutBooks((prevBooks) => [...prevBooks, selectedBook]);
+    setIsCheckedOut(true);
+  };
+
   return (
     <>
        {selectedBook?.coverimage && (
-          <img
-            src={selectedBook.coverimage}
-            alt={`Cover image for ${selectedBook.title}`}
-            height="500"
-            width="350"
-          />
+        <img
+          src={selectedBook.coverimage}
+          alt={`Cover image for ${selectedBook.title}`}
+          height="500"
+          width="350"
+        />
         )}
-      <h2>{selectedBook.title}</h2>
-      <h3>{selectedBook.author}</h3>
-      <p>{selectedBook.description}</p>
+        <h2>{selectedBook.title}</h2>
+        <h3>{selectedBook.author}</h3>
+        <p>{selectedBook.description}</p>
 
-      <button
-        onClick={() => { navigate(`/bookcatalog/`); }}
-      >Back To Book Catalog</button>
-      <button>Checkout Book</button>
+        <button
+          onClick={() => { navigate(`/bookcatalog/`); }}
+        >Back To Book Catalog</button>
+
+        {!isCheckedOut ? (
+          <button onClick={handleCheckout}>Checkout Book</button>
+        ) : (
+          <p>Checked Out!</p>
+      )}
     </>
   );
 };

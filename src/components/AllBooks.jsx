@@ -5,7 +5,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const AllBooks = () => {
+const AllBooks = ({ checkedOutBooks }) => {
   const [books, setBooks] = useState([]);
   const navigate = useNavigate();
   
@@ -26,13 +26,16 @@ const AllBooks = () => {
     getBooks();
   }, []);
 
-  
+  const availableBooks = books.filter(
+    (book) => !checkedOutBooks.find((checkedOutBook) => checkedOutBook.id === book.id)
+  );
+
   return (
     <>
       <h1>Book Catalog</h1>
 
-      <section>
-        {books.map((book) => (
+      <section id="all-books">
+        {availableBooks.map((book) => (
           <section 
             onClick={() => { navigate(`/bookcatalog/${book.id}`); }}
             key={book.id}
