@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import LogInForm from "./LogInForm";
 import NewUserRegistration from "./NewUserRegistration";
 
-const AccountDetails = ({ token, setToken, checkedOutBooks }) => {
+const AccountDetails = ({ token, setToken, checkedOutBooks, setCheckedOutBooks }) => {
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(false);
   const [username, setUsername] = useState('');
   const [userDetails, setUserDetails] = useState(() => {
@@ -22,29 +22,38 @@ const AccountDetails = ({ token, setToken, checkedOutBooks }) => {
     localStorage.setItem('userDetails', JSON.stringify(user));
   };
 
+  const handleReturnBook = (bookId) => {
+    setCheckedOutBooks(checkedOutBooks.filter((book) => book.id !== bookId));
+  };
+
   return (
     <>
       {userDetails ? (
-        <section>
-          <h2>Welcome back, {userDetails.firstname} {userDetails.lastname}!</h2>
-          <p id="p1">Email: {userDetails.email}</p>
-          <h2>Currently Checked Out Books</h2>
-          <ul>
-            {checkedOutBooks.map((book) => (
-              <li key={book.id} style={{ textAlign: 'center' }}> {/* Center the content inside each list item */}
-                <img
-                  src={book.coverimage}
-                  alt={`Cover image for ${book.title}`}
-                  height="150" // Adjust the size as needed
-                  width="100" // Adjust the size as needed
-                />
-                <p style={{ fontSize: '16px', color: '#520909', fontFamily: 'Roboto, sans-serif', fontWeight: 'bold' }}>
-                  {book.title}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </section>
+         <section>
+         <h2>Welcome back, {userDetails.firstname} {userDetails.lastname}!</h2>
+         <p id="p1">Email: {userDetails.email}</p>
+         <h2>Currently Checked Out Books</h2>
+         <ul>
+           {checkedOutBooks.map((book) => (
+             <li 
+             id="checked-out"
+             key={book.id}
+             >
+               <img
+                 src={book.coverimage}
+                 alt={`Cover image for ${book.title}`}
+                 height="120"
+                 width="90"
+               />
+               <h3>{book.title}</h3>
+               <button 
+               id="return-book-button"
+               onClick={() => handleReturnBook(book.id)}
+               >Return Book</button>
+             </li>
+           ))}
+         </ul>
+       </section>
       ) : (
         <>
           {showWelcomeMessage ? (

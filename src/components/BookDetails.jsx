@@ -39,23 +39,27 @@ const BookDetails = ({ setCheckedOutBooks }) => {
   return (
     <>
        {selectedBook?.coverimage && (
-        <img
-          src={selectedBook.coverimage}
-          alt={`Cover image for ${selectedBook.title}`}
-          height="500"
-          width="350"
-        />
-        )}
-        <h2>{selectedBook.title}</h2>
-        <h3>{selectedBook.author}</h3>
-        <p>{selectedBook.description}</p>
+          <img
+            id="book-photo"
+            src={selectedBook.coverimage}
+            alt={`Cover image for ${selectedBook.title}`}
+            height="500"
+            width="350"
+          />
+          )}
+          <h2 id="book-title">{selectedBook.title}</h2>
+          <h3 id="book-author">{selectedBook.author}</h3>
+          <p id="book-description">{selectedBook.description}</p>
 
         <button
+          id="back-button"
           onClick={() => { navigate(`/bookcatalog/`); }}
         >Back To Book Catalog</button>
 
         {!isCheckedOut ? (
-          <button onClick={handleCheckout}>Checkout Book</button>
+          <button 
+          id="checkout-button"
+          onClick={handleCheckout}>Checkout Book</button>
         ) : (
           <p>Checked Out!</p>
       )}
